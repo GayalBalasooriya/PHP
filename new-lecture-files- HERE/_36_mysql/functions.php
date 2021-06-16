@@ -24,7 +24,7 @@ $password = crypt($password,$hashF_and_salt);
     
    $result = mysqli_query($connection, $query);
     if(!$result) {
-        die('Query FAILED' . mysqli_error());
+        die('Query FAILED' . mysqli_error($connection));
     
     } else {
     
@@ -45,7 +45,7 @@ function readRows() {
     $query = "SELECT * FROM users";
     $result = mysqli_query($connection, $query);
     if(!$result) {
-        die('Query FAILED' . mysqli_error());
+        die('Query FAILED' . mysqli_error($connection));
     }
         
 while($row = mysqli_fetch_assoc($result)) {
@@ -62,7 +62,7 @@ function showAllData() {
     $query = "SELECT * FROM users";
     $result = mysqli_query($connection, $query);
     if(!$result) {
-        die('Query FAILED' . mysqli_error());
+        die('Query FAILED' . mysqli_error($connection));
     }
 
     while($row = mysqli_fetch_assoc($result)) {
